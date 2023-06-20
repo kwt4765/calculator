@@ -22,6 +22,7 @@ class Calculator(QWidget) :
         self.setLayout(vbox)
 
         self.setWindowTitle('Calculator')
+        self.setWindowIcon(QIcon('icon.png'))
         self.resize(256,256)
         self.show()
 
