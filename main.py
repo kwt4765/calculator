@@ -1,9 +1,7 @@
 import sys # 빌트 인 모듈로, 시스템 명령어를 수행할 수 있도록 도와준다.
 from PyQt5.QtWidgets import (QApplication,
                             QWidget, QPushButton, QVBoxLayout, 
-                            QMessageBox, QPlainTextEdit, QHBoxLayout, QLabel) 
-
-from PyQt5.QtCore import QDate, Qt
+                            QMessageBox, QPlainTextEdit, QHBoxLayout) 
 
 import random # 내 맘대로 로또 추첨 기능 추가할래
 
@@ -18,11 +16,9 @@ class Calculator(QWidget) :
     #super() : 클래스가 어떤 객체를 기반으로 만들어 질 때, 그 기반 객체를 뜻한다.
     def __init__(self) :
         super().__init__()
-        self.date = QDate.currentDate()
         self.initUI()
 
     def initUI(self) :
-        self.lbl1 = QLabel(self.date.toString(Qt.DefaultLocaleLongDate),self)
         self.te1 = QPlainTextEdit()
         self.te1.setReadOnly(True)
         
@@ -40,7 +36,7 @@ class Calculator(QWidget) :
         vbox=QVBoxLayout()
         vbox.addWidget(self.te1)
         vbox.addLayout(hbox)
-        vbox.addWidget(self.lbl1)
+        vbox.addStretch(1)
 
         self.setLayout(vbox)
 
